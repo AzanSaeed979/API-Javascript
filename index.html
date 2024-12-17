@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dynamic Delete Button</title>
+</head>
+<body>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+    <button id="buttons">Add Item</button>
+    <div id="del"></div>
+
+    <input type="text" id="textInput" placeholder="Type something">
+    <p id="output"></p>
+    <select id="dropdown">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+  </select>
+  <p id="selectedValue"></p>
+  <script>
+      const dropdown = document.getElementById('dropdown');
+      const selectedValue = document.getElementById('selectedValue');
+      
+      dropdown.addEventListener('change', () => {
+          selectedValue.textContent = `Selected: ${dropdown.value}`;
+      });
+  </script>
+    <!-- <script>
+        const textInput = document.getElementById('textInput');
+        const output = document.getElementById('output');
+        
+        textInput.addEventListener('keydown', (event) => {
+            output.textContent = `You pressed: ${event.key}`;
+        });
+    </script> -->
+
+    <!-- <script>
+        const list = document.getElementById('list');
+        const addButton = document.getElementById('buttons');
+
+        // Function to create a delete button for each list item
+        function addDeleteButtonToItem(item) {
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.style.marginLeft = "10px";
+
+            // Attach click event to delete the specific list item
+            deleteButton.addEventListener("click", () => {
+                list.removeChild(item);
+            });
+
+            item.appendChild(deleteButton);
+        }
+
+        // Add delete buttons to existing list items
+        Array.from(list.children).forEach(addDeleteButtonToItem);
+
+        // Add new list item with delete button on button click
+        addButton.addEventListener("click", () => {
+            const newItem = document.createElement("li");
+            newItem.textContent = `Item ${list.children.length + 1}`;
+            addDeleteButtonToItem(newItem);
+            list.appendChild(newItem);
+        });
+    </script> -->
+</body>
+</html>
